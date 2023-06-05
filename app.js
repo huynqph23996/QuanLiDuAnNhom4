@@ -6,7 +6,7 @@ var logger = require('morgan');
 var session = require('express-session');
 var indexRouter = require('./routes/index');
 var accRouter= require('./routes/acccount');
-
+var apiRouter=require('./routes/api');
 var app = express();
 
 // view engine setup
@@ -25,7 +25,7 @@ app.use(session({
   }));
 app.use('/', indexRouter);
 app.use('/acccount',accRouter);
-
+app.use('/api',apiRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
@@ -39,7 +39,16 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  if(req.originalUrl.indexOf('/api') ==0 ){
+    res.json(
+      {
+        msg: err.message
+      }
+    );
+  }else{
+    res.render('error');
+  }
+ 
 });
 
 module.exports = app;
