@@ -125,4 +125,18 @@ exports.chitietsp=async(req,res,next)=>{
     }
     res.render('home/chitietsp', { objSP: objSP, listTL: listTL });
 }
+exports.addTL=async(req,res,next)=>{
+    let objSP = new myMD.theloaiModel();
+    objSP.name=req.body.name;
+    try {
+        let new_sp = await objSP.save();
+        console.log(new_sp);
+        res.redirect('/');
+    } catch (error) {
+       
+
+        console.log( error );   
+    }
+    res.render('home/addTL');
+}
 
