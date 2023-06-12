@@ -20,4 +20,6 @@ router.get('/deletesp/:idsp',homeCtrl.deletesp);
 router.post('/deletesp/:idsp',homeCtrl.deletesp);
 router.get('/chitietsp/:idsp',homeCtrl.chitietsp);
 router.post('/chitietsp/:idsp',homeCtrl.chitietsp);
+router.get('/addTL',homeCtrl.addTL);
+router.post('/addTL',homeCtrl.addTL);
 module.exports = router;
