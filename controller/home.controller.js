@@ -139,4 +139,26 @@ exports.addTL=async(req,res,next)=>{
     }
     res.render('home/addTL');
 }
+// sắp xếp bé- lớn
+exports.belon =async (req, res, next) => {
+    // tạo chức năng lọc dữ liệu danh sách
+       let dieu_kien_loc = null;
+       if(typeof( req.query.price) !='undefined'){
+           dieu_kien_loc = {price: req.query.price};
+       }
+       // hiển thị ds dữ liệu 
+       var list = await myMD.spModel.find(dieu_kien_loc).sort({price: 1}).populate('id_thefirm');
+       res.render('home/index',{listSP: list});
+}
+// sắp xếp lớn - bé
+exports.lonbe =async (req, res, next) => {
+// tạo chức năng lọc dữ liệu danh sách
+    let dieu_kien_loc = null;
+    if(typeof( req.query.price) !='undefined'){
+        dieu_kien_loc = {price: req.query.price};
+    }
+    // hiển thị ds dữ liệu 
+    var list = await myMD.spModel.find(dieu_kien_loc).sort({price: -1}).populate('id_thefirm');
+    res.render('home/index',{listSP: list});
+}
 
