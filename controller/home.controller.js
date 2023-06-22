@@ -161,4 +161,8 @@ exports.lonbe =async (req, res, next) => {
     var list = await myMD.spModel.find(dieu_kien_loc).sort({price: -1}).populate('id_thefirm');
     res.render('home/index',{listSP: list});
 }
-
+exports.danhsachTL=async(req,res,next)=>{
+    let list = await myMD.theloaiModel.find();
+    console.log(list);
+    res.render('home/danhsachTL',{listSP:list})
+}
