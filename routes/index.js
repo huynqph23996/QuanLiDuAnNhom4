@@ -26,4 +26,6 @@ router.get('/belon',homeCtrl.belon);
 router.post('/belon',homeCtrl.belon);
 router.get('/lonbe',homeCtrl.lonbe);
 router.post('/lonbe',homeCtrl.lonbe);
+router.get('/danhsachTL/',homeCtrl.danhsachTL);
+router.post('/danhsachTL/',homeCtrl.danhsachTL);
 module.exports = router;
