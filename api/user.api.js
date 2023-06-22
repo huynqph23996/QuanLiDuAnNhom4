@@ -10,7 +10,7 @@ exports.list = async(req, res, next)=>{
             );
         } else {
             res.status(204).json({
-                msg: 'Deo co du lieu',
+                msg: 'khong co du lieu',
 
             });
         }
@@ -33,7 +33,7 @@ exports.list = async(req, res, next)=>{
             );
         } else {
             res.status(204).json({
-                msg: 'Deo co du lieu',
+                msg: 'khong co du lieu',
 
             });
         }
